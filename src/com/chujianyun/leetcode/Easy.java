@@ -6,6 +6,26 @@ import java.util.Map;
 public class Easy {
 
     /**
+     * 反转整数
+     * @param x 整数
+     * @return 反转
+     */
+    public int reverse(int x) {
+        int result =0;
+        while (x != 0)
+        {
+            int tail = x%10;
+            int newResult = result*10+tail;
+            if((newResult - tail)/10 != result) {return 0;}
+            result = newResult;
+            x = x/10;
+        }
+        return result;
+    }
+
+
+
+    /**
      * 整形数组，找出和为某数的两个数字
      * @param nums  整型数组
      * @param target 目标数字
