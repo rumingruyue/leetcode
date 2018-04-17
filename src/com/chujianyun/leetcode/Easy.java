@@ -5,7 +5,24 @@ import java.util.Map;
 
 public class Easy {
 
-
+    /**
+     * 整形数组，找出和为某数的两个数字
+     * @param nums  整型数组
+     * @param target 目标数字
+     * @return 满足和为target的两个整数
+     */
+    public int[] twoSum2(int[] nums, int target) {
+        Map<Integer,Integer> tmpMap = new HashMap<>(nums.length);
+        //遍历并记录到Map中
+        for (int i = 0; i < nums.length; i++) {
+           int complement = target - nums[i];
+            if (tmpMap.containsKey(complement)&&tmpMap.get(complement)!=i){
+                return new int[]{i,tmpMap.get(complement)};
+            }
+            tmpMap.put(nums[i],i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
     /**
      * 整形数组，找出和为某数的两个数字
      * @param nums  整型数组
@@ -24,8 +41,10 @@ public class Easy {
                 return new int[]{i,tmpMap.get(target - nums[i])};
             }
         }
-        return null;
+        throw new IllegalArgumentException("No two sum solution");
     }
+
+
 
 
 }
