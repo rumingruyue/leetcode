@@ -5,6 +5,16 @@ import java.util.Map;
 
 public class Easy {
 
+    /**
+     * 罗马数字转数字
+     * @param s 罗马数字字符串
+     * @return 数字
+     */
+    public int romanToInt(String s) {
+
+        return 0;
+    }
+
 
     /**
      * 判断一个整数是否为回文字(字符串方法)
