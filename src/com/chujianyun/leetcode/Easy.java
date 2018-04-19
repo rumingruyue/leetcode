@@ -7,14 +7,52 @@ public class Easy {
 
     /**
      * 罗马数字转数字
+     *
      * @param s 罗马数字字符串
      * @return 数字
      */
     public int romanToInt(String s) {
+        //存放每个罗马字母对应的数值
+        int[] numbers = new int[s.length()];
 
-        return 0;
+        for (int i = 0; i < s.length(); i++) {
+            switch (s.charAt(i)) {
+                case 'M':
+                    numbers[i] = 1000;
+                    break;
+                case 'D':
+                    numbers[i] = 500;
+                    break;
+                case 'C':
+                    numbers[i] = 100;
+                    break;
+                case 'L':
+                    numbers[i] = 50;
+                    break;
+                case 'X':
+                    numbers[i] = 10;
+                    break;
+                case 'V':
+                    numbers[i] = 5;
+                    break;
+                case 'I':
+                    numbers[i] = 1;
+                    break;
+                default:
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i < numbers.length - 1; i++) {
+            if (numbers[i] < numbers[i + 1]) {
+                sum -= numbers[i];
+            } else {
+                sum += numbers[i];
+            }
+        }
+
+        return sum + numbers[numbers.length - 1];
     }
-
 
     /**
      * 判断一个整数是否为回文字(字符串方法)
